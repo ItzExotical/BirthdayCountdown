@@ -19,6 +19,7 @@
             <h1 class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
                 Exotical's 18th Birthday
             </h1>
+            <p>April 30, 2025 (2025-04-30)</p>
             <p class="text-2xl mt-4 text-cyan-300">Time remaining (Central European Time):</p>
             
             <div class="grid grid-cols-4 gap-4 mt-8">
