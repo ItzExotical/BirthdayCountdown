@@ -4,6 +4,7 @@
     "": {
       "name": "nuxt-app",
       "dependencies": {
+        "@nuxt/kit": "latest",
         "@nuxt/ui": "latest",
         "nuxt": "latest",
         "vue": "latest",
