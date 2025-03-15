@@ -1,4 +1,8 @@
-# Nuxt Minimal Starter
+# BirthdayCountdown
+
+Literally just a countdown web app for Exotical's 18th birthday.
+
+# Development
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
