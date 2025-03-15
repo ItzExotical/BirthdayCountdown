@@ -1,43 +1,43 @@
 <template>
-    <div class="flex justify-center bg-gradient-to-b from-gray-900 to-purple-900 items-center h-screen">
-        <div v-if="countdownFinished" class="text-center p-8 bg-black/30 rounded-xl backdrop-blur-sm border border-purple-500/30 shadow-2xl">
-            <h1 class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 animate-pulse">
+    <div class="flex justify-center bg-gradient-to-b from-gray-900 to-purple-900 items-center min-h-screen p-4">
+        <div v-if="countdownFinished" class="text-center p-4 md:p-8 bg-black/30 rounded-xl backdrop-blur-sm border border-purple-500/30 shadow-2xl max-w-full sm:max-w-lg md:max-w-xl">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 animate-pulse">
                 Happy 18th Birthday, Exotical! 🎉
             </h1>
-            <div class="mt-8">
-                <div class="py-6 px-8 animate-bounce bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-2xl font-bold">
+            <div class="mt-4 md:mt-8">
+                <div class="py-4 md:py-6 px-4 md:px-8 animate-bounce bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xl md:text-2xl font-bold">
                     It's finally here!
                 </div>
-                <div class="mt-6 grid grid-cols-3 gap-4">
-                    <span class="text-6xl">🎂</span>
-                    <span class="text-6xl">🎈</span>
-                    <span class="text-6xl">🎁</span>
+                <div class="mt-4 md:mt-6 grid grid-cols-3 gap-2 md:gap-4">
+                    <span class="text-4xl md:text-6xl">🎂</span>
+                    <span class="text-4xl md:text-6xl">🎈</span>
+                    <span class="text-4xl md:text-6xl">🎁</span>
                 </div>
             </div>
         </div>
-        <div v-else class="text-center p-8 bg-black/30 rounded-xl backdrop-blur-sm border border-purple-500/30 shadow-2xl">
-            <h1 class="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+        <div v-else class="text-center p-4 md:p-8 bg-black/30 rounded-xl backdrop-blur-sm border border-purple-500/30 shadow-2xl w-full max-w-xs sm:max-w-lg md:max-w-xl">
+            <h1 class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
                 Exotical's 18th Birthday
             </h1>
-            <p>April 30, 2025 (2025-04-30)</p>
-            <p class="text-2xl mt-4 text-cyan-300">Time remaining (Central European Time):</p>
+            <p class="text-sm md:text-base">April 30, 2025 (2025-04-30)</p>
+            <p class="text-lg md:text-2xl mt-2 md:mt-4 text-cyan-300">Time remaining (Central European Time):</p>
             
-            <div class="grid grid-cols-4 gap-4 mt-8">
-                <div class="flex flex-col p-4 bg-black/50 rounded-lg border border-purple-500/50">
-                    <span class="text-6xl font-bold text-white">{{ days }}</span>
-                    <span class="text-lg text-gray-300">days</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-4 mt-4 md:mt-8">
+                <div class="flex flex-col p-2 md:p-4 bg-black/50 rounded-lg border border-purple-500/50">
+                    <span class="text-4xl md:text-6xl font-bold text-white">{{ days }}</span>
+                    <span class="text-sm md:text-lg text-gray-300">days</span>
                 </div>
-                <div class="flex flex-col p-4 bg-black/50 rounded-lg border border-purple-500/50">
-                    <span class="text-6xl font-bold text-white">{{ hours }}</span>
-                    <span class="text-lg text-gray-300">hours</span>
+                <div class="flex flex-col p-2 md:p-4 bg-black/50 rounded-lg border border-purple-500/50">
+                    <span class="text-4xl md:text-6xl font-bold text-white">{{ hours }}</span>
+                    <span class="text-sm md:text-lg text-gray-300">hours</span>
                 </div>
-                <div class="flex flex-col p-4 bg-black/50 rounded-lg border border-purple-500/50">
-                    <span class="text-6xl font-bold text-white">{{ minutes }}</span>
-                    <span class="text-lg text-gray-300">minutes</span>
+                <div class="flex flex-col p-2 md:p-4 bg-black/50 rounded-lg border border-purple-500/50">
+                    <span class="text-4xl md:text-6xl font-bold text-white">{{ minutes }}</span>
+                    <span class="text-sm md:text-lg text-gray-300">minutes</span>
                 </div>
-                <div class="flex flex-col p-4 bg-black/50 rounded-lg border border-purple-500/50">
-                    <span class="text-6xl font-bold text-white">{{ seconds }}</span>
-                    <span class="text-lg text-gray-300">seconds</span>
+                <div class="flex flex-col p-2 md:p-4 bg-black/50 rounded-lg border border-purple-500/50">
+                    <span class="text-4xl md:text-6xl font-bold text-white">{{ seconds }}</span>
+                    <span class="text-sm md:text-lg text-gray-300">seconds</span>
                 </div>
             </div>
         </div>
