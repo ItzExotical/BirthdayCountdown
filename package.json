@@ -17,8 +17,8 @@
     "nuxt": "^3.16.0"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.29",
-    "@nuxt/ui": "^2.21.1"
+    "@iconify-json/lucide": "^1.2.30",
+    "@nuxt/ui": "latest"
   },
   "packageManager": "bun@1.2.5"
 }
