@@ -13,6 +13,7 @@
     "node": ">=22"
   },
   "devDependencies": {
+    "@iconify-json/fa6-brands": "^1.2.5",
     "@nuxt/devtools": "^1.7.0",
     "nuxt": "^3.16.0"
   },

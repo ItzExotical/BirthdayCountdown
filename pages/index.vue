@@ -40,6 +40,12 @@
                     <span class="text-sm md:text-lg text-gray-300">seconds</span>
                 </div>
             </div>
+            <div class="flex justify-center items-center gap-2 mt-6">
+                <UIcon name="i-fa6-brands-github" />
+                <ULink to="https://github.com/ItzExotical/BirthdayCountdown">
+                    Source code
+                </ULink>
+            </div>
         </div>
     </div>
 </template>
