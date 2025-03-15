@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "packageManager": "bun@1.2.5",
   "dependencies": {
     "@nuxt/ui": "^3.0.0",
     "nuxt": "latest",
