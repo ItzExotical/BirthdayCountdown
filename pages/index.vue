@@ -50,22 +50,22 @@
 </template>
 <script setup lang="ts">
     const debugMode = ref(false);
-    const birthday = new Date(Date.UTC(2025, 3, 30, 0, 0, 0)).getTime();
+    const birthday = new Date("2025-04-30T00:00:00+02:00").getTime();
     const days = ref(0);
     const hours = ref(0);
     const minutes = ref(0);
     const seconds = ref(0);
     const countdownFinished = ref(false);
     const updateCountdown = () => {
-        if (debugMode.value) {
-            countdownFinished.value = true;
-            return;
-        };
-        const now = new Date().getTime();
-        const cetOffset = 60 * 60 * 1000;
-        const localOffset = new Date().getTimezoneOffset() * 60 * 1000;
-        const cetTime = now + localOffset + cetOffset;
-        const distance = birthday - cetTime;
+        const now = new Date();
+        const timeZone = "Europe/Stockholm";
+        const formatter = new Intl.DateTimeFormat("en-US", { timeZone, timeZoneName: "short" });
+        const timeZoneString = formatter.formatToParts(now).find(part => part.type === "timeZoneName")?.value;
+        const isCEST = timeZoneString === "GMT+2";
+        const stockholmOffset = isCEST ? 2 * 60 * 60 * 1000 : 1 * 60 * 60 * 1000;
+        const localOffset = now.getTimezoneOffset() * 60 * 1000;
+        const stockholmTime = now.getTime() + localOffset + stockholmOffset;
+        const distance = birthday - stockholmTime;
         if (distance <= 0) {
             days.value = 0;
             hours.value = 0;
@@ -82,10 +82,10 @@
             seconds.value = Math.floor((distance % (1000 * 60)) / 1000);
         };
     };
-    let intervalId: number | null = null;
+    let intervalId = null;
     onMounted(() => {
         updateCountdown();
-        intervalId = window.setInterval(updateCountdown, 1000);
+        intervalId = setInterval(updateCountdown, 1000);
     });
     onUnmounted(() => {
         if (intervalId !== null) {
