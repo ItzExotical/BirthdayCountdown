@@ -20,8 +20,7 @@
                 Exotical's 18th Birthday
             </h1>
             <p class="text-sm md:text-base">April 30, 2025 (2025-04-30)</p>
-            <p class="text-lg md:text-2xl mt-2 md:mt-4 text-cyan-300">Time remaining (Central European Time):</p>
-            
+            <p class="text-lg md:text-2xl mt-2 md:mt-4 text-cyan-300">Time remaining (CEST):</p>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 md:gap-4 mt-4 md:mt-8">
                 <div class="flex flex-col p-2 md:p-4 bg-black/50 rounded-lg border border-purple-500/50">
                     <span class="text-4xl md:text-6xl font-bold text-white">{{ days }}</span>
