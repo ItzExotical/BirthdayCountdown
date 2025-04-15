@@ -15,11 +15,13 @@
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.2.5",
     "@nuxt/devtools": "^1.7.0",
-    "nuxt": "^3.16.0"
+    "nuxt": "^3.16.2"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.30",
-    "@nuxt/ui": "latest"
+    "@iconify-json/lucide": "^1.2.36",
+    "@nuxt/ui": "latest",
+    "@types/luxon": "^3.6.2",
+    "luxon": "^3.6.1"
   },
   "packageManager": "bun@1.2.5"
 }

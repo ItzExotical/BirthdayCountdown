@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center bg-gradient-to-b from-gray-900 to-purple-900 items-center min-h-screen p-4">
-        <div v-if="countdownFinished" class="text-center p-4 md:p-8 bg-black/30 rounded-xl backdrop-blur-sm border border-purple-500/30 shadow-2xl max-w-full sm:max-w-lg md:max-w-xl">
+        <div v-if="finished" class="text-center p-4 md:p-8 bg-black/30 rounded-xl backdrop-blur-sm border border-purple-500/30 shadow-2xl max-w-full sm:max-w-lg md:max-w-xl">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 animate-pulse">
                 Happy 18th Birthday, Exotical! 🎉
             </h1>
@@ -50,47 +50,36 @@
     </div>
 </template>
 <script setup lang="ts">
-    const debugMode = ref(false);
-    const birthday = new Date("2025-04-30T00:00:00+01:00").getTime();
+    import { DateTime } from "luxon";
+    const birthday = DateTime.fromISO("2025-04-30T00:00:00", {zone: "Europe/Stockholm"});
+    const finished = ref(false);
     const days = ref(0);
     const hours = ref(0);
     const minutes = ref(0);
     const seconds = ref(0);
-    const countdownFinished = ref(false);
     const updateCountdown = () => {
-        if (debugMode.value) {
-            countdownFinished.value = true;
-            return;
-        };
-        const now = new Date().getTime();
-        const cetOffset = 60 * 60 * 1000;
-        const localOffset = new Date().getTimezoneOffset() * 60 * 1000;
-        const cetTime = now + localOffset + cetOffset;
-        const distance = birthday - cetTime;
-        if (distance <= 0) {
+        const now = DateTime.now().setZone("Europe/Stockholm");
+        const diff = birthday.diff(now, ["days", "hours", "minutes", "seconds"]);
+        if (diff.toMillis() <= 0) {
             days.value = 0;
             hours.value = 0;
             minutes.value = 0;
             seconds.value = 0;
-            countdownFinished.value = true;
-            if (intervalId !== null) {
-                clearInterval(intervalId);
-            };
+            finished.value = true;
+            if (intervalId !== null) clearInterval(intervalId);
         } else {
-            days.value = Math.floor(distance / (1000 * 60 * 60 * 24));
-            hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            minutes.value = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            seconds.value = Math.floor((distance % (1000 * 60)) / 1000);
-        };
+            days.value = Math.floor(diff.days);
+            hours.value = Math.floor(diff.hours);
+            minutes.value = Math.floor(diff.minutes);
+            seconds.value = Math.floor(diff.seconds);
+        }
     };
-    let intervalId: number | null = null;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
     onMounted(() => {
         updateCountdown();
-        intervalId = window.setInterval(updateCountdown, 1000);
+        intervalId = setInterval(updateCountdown, 1000);
     });
     onUnmounted(() => {
-        if (intervalId !== null) {
-            clearInterval(intervalId);
-        };
+        if (intervalId !== null) clearInterval(intervalId);
     });
 </script>
