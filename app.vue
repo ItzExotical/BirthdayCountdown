@@ -16,4 +16,9 @@
     ogDescription: description,
     ogSiteName: siteName
   });
+  useServerHead({
+    htmlAttrs: {
+      lang: "en"
+    }
+  });
 </script>
