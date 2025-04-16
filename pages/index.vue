@@ -82,7 +82,6 @@
         if (intervalId !== null) clearInterval(intervalId);
     });
     definePageMeta({
-        title: "Exotical's Birthday Countdown",
-        description: "Countdown to Exotical's birthday!"
+        title: "Countdown to Exotical's birthday!",
     });
 </script>
