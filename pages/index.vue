@@ -51,27 +51,27 @@
 <script setup lang="ts">
     import { DateTime } from "luxon";
     const birthday = DateTime.fromISO("2025-04-30T00:00:00", {zone: "Europe/Stockholm"});
-    const finished = ref(false);
-    const days = ref(0);
-    const hours = ref(0);
-    const minutes = ref(0);
-    const seconds = ref(0);
+    const finished = ref(Boolean());
+    const days = ref(Number());
+    const hours = ref(Number());
+    const minutes = ref(Number());
+    const seconds = ref(Number());
     const updateCountdown = () => {
         const now = DateTime.now().setZone("Europe/Stockholm");
         const diff = birthday.diff(now, ["days", "hours", "minutes", "seconds"]);
-        if (diff.toMillis() <= 0) {
-            days.value = 0;
-            hours.value = 0;
-            minutes.value = 0;
-            seconds.value = 0;
-            finished.value = true;
+        if (diff.toMillis() <= Number()) {
+            days.value = Number();
+            hours.value = Number();
+            minutes.value = Number();
+            seconds.value = Number();
+            finished.value = Boolean(1);
             if (intervalId !== null) clearInterval(intervalId);
         } else {
             days.value = Math.floor(diff.days);
             hours.value = Math.floor(diff.hours);
             minutes.value = Math.floor(diff.minutes);
             seconds.value = Math.floor(diff.seconds);
-        }
+        };
     };
     let intervalId: ReturnType<typeof setInterval> | null = null;
     onMounted(() => {
